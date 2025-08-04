@@ -8,7 +8,7 @@ import random
 
 def show_graph(df, selected_name, others_df):
     st.set_page_config(page_title="Pokémon Height vs Weight", layout="centered")
-    st.header("Pokémon Height vs Weight (from CSV)")
+    st.subheader("Pokémon Height vs Weight (from CSV)")
 
     main_pokemon = df[df["name"] == selected_name].iloc[0]
     main_height = main_pokemon["height_m"]
