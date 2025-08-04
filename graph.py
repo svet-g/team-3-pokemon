@@ -8,7 +8,7 @@ import random
 
 def show_graph(df, selected_name, others_df):
     st.set_page_config(page_title="Pokémon Height vs Weight", layout="centered")
-    st.title("Pokémon Height vs Weight (from CSV)")
+    st.header("Pokémon Height vs Weight (from CSV)")
 
     main_pokemon = df[df["name"] == selected_name].iloc[0]
     main_height = main_pokemon["height_m"]
@@ -28,10 +28,6 @@ def show_graph(df, selected_name, others_df):
         fig, ax = plt.subplots()
         ax.scatter(heights[:-1], weights[:-1], label="Other Pokémon", color="blue")
         ax.scatter(heights[-1], weights[-1], label=names[-1], color="red", s=100)
-
-        for i, name in enumerate(names):
-            ax.annotate(name, (heights[i], weights[i]), fontsize=8, xytext=(5, 5), textcoords="offset points")
-            
         
         ax.set_xlabel("Height (m)")
         ax.set_ylabel("Weight (kg)")

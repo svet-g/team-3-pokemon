@@ -1,1 +1,35 @@
-# team-3-pokemon
+# Team-3-pokemon
+
+# Pokémon Stats Explorer
+
+This is a Streamlit app that lets users explore Pokémon data interactively.
+
+## Features
+
+- Input a Pokémon by name
+- View key stats like name, weight, height, main ability and an image
+- Compare selected Pokémon’s height and weight against random others via a scatterplot
+
+## Stats Comparison
+
+Once a Pokémon is selected, the app generates a visual comparing its height and weight to other randomly chosen Pokémon. It highlights the user's selection in red and others in blue.
+
+## Tech Stack
+
+- Python
+- Streamlit
+- Pandas
+- Matplotlib
+
+## Running the App
+
+1. Clone the repo
+2. Create a virtual environment
+3. Install requirements: `pip install -r requirements.txt`
+4. Run the app with `streamlit run main.py`
+
+## Credits
+
+- Data Source: Pokémon CSV dataset
+
+
