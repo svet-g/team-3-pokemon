@@ -15,7 +15,7 @@ def show_graph(df, selected_name):
     main_weight = main_pokemon["weight_kg"]
         
     def compare_with_random(main_height, main_weight, main_name, df):
-        others_df = df[df["name"] != main_name].sample(10, random_state=None)
+        others_df = df[df["name"] != main_name].sample(50, random_state=None)
         
         heights = others_df["height_m"].tolist()
         weights = others_df["weight_kg"].tolist()
@@ -30,8 +30,8 @@ def show_graph(df, selected_name):
         ax.scatter(heights[:-1], weights[:-1], label="Other Pokémon", color="blue")
         ax.scatter(heights[-1], weights[-1], label=names[-1], color="red", s=100)
 
-        for i, name in enumerate(names):
-            ax.annotate(name, (heights[i], weights[i]), fontsize=6, xytext=(5, 5), textcoords="offset points")
+        # for i, name in enumerate(names):
+        #     ax.annotate(name, (heights[i], weights[i]), fontsize=8, xytext=(5, 5), textcoords="offset points")
             
         
         ax.set_xlabel("Height (m)")
@@ -42,5 +42,4 @@ def show_graph(df, selected_name):
 
     if selected_name:
         fig = compare_with_random(main_height, main_weight, selected_name, df)
-
         st.pyplot(fig)
