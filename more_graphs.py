@@ -13,7 +13,7 @@ def show_more_graphs(df, chosen_pokemon, other_pokemon):
     g = sns.relplot(
         data=concat_df,
         x="status", y="name",
-        hue="attack", size="growth_rate",
+        hue="attack", size="defense",
         palette=cmap, sizes=(10, 200),
     )
     g.ax.xaxis.grid(True, "minor", linewidth=.25)
