@@ -50,26 +50,28 @@ with col1:
     st.metric(label="Height (m)", value=pokemon_row["height_m"].values[0])
     st.metric(label="Main Ability", value=pokemon_row["ability_1"].values[0])
     
-    optional_col = list()
-
-    for col in df.columns:
-        if col not in ["name", "weight_kg", "height_m", "ability_1", "Unnamed: 0", "pokedex_number"]:
-            optional_col.append(col)        
-
-    #st.write("More attributes?")
-    new_field = st.selectbox(
-        "Choose additional attributes to display:",
-        optional_col
-    )
-  
-    
 with col2:
     st.markdown('<BR>', unsafe_allow_html=True)
     # call display picture function
     di.view_image(df, option, pokemon)
     st.markdown('<BR>', unsafe_allow_html=True)
     st.markdown('<BR>', unsafe_allow_html=True)
-    st.metric(label=new_field.replace("_", " ").title(), value=pokemon_row[new_field].values[0])
+
+optional_col = list()
+
+for col in df.columns:
+    if col not in ["name", "weight_kg", "height_m", "ability_1", "Unnamed: 0", "pokedex_number"]:
+        optional_col.append(col)        
+
+#st.write("More attributes?")
+new_field = st.selectbox(
+    "Choose additional attributes to display:",
+    optional_col
+)
+
+st.metric(label=new_field.replace("_", " ").title(), value=pokemon_row[new_field].values[0])
+
+st.markdown("""<HR>""", unsafe_allow_html=True,)
 
 # df of the pokemon being compared against
 
