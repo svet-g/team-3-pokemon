@@ -6,7 +6,7 @@ from io import BytesIO
 import matplotlib.pyplot as plt 
 import random
 
-def show_graph(df, selected_name):
+def show_graph(df, selected_name, others_df):
     st.set_page_config(page_title="Pokémon Height vs Weight", layout="centered")
     st.title("Pokémon Height vs Weight (from CSV)")
 
@@ -14,8 +14,7 @@ def show_graph(df, selected_name):
     main_height = main_pokemon["height_m"]
     main_weight = main_pokemon["weight_kg"]
         
-    def compare_with_random(main_height, main_weight, main_name, df):
-        others_df = df[df["name"] != main_name].sample(10, random_state=None)
+    def compare_with_random(main_height, main_weight, main_name, df, others_df):
         
         heights = others_df["height_m"].tolist()
         weights = others_df["weight_kg"].tolist()
@@ -41,5 +40,5 @@ def show_graph(df, selected_name):
         return fig
 
     if selected_name:
-        fig = compare_with_random(main_height, main_weight, selected_name, df)
+        fig = compare_with_random(main_height, main_weight, selected_name, df, others_df)
         st.pyplot(fig)
