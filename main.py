@@ -50,6 +50,20 @@ with col1:
     st.metric(label="Height (m)", value=pokemon_row["height_m"].values[0])
     st.metric(label="Main Ability", value=pokemon_row["ability_1"].values[0])
     
+    optional_col = list()
+
+    for col in df.columns:
+        if col not in ["name", "weight_kg", "height_m", "ability_1", "Unnamed: 0", "pokedex_number"]:
+            optional_col.append(col)        
+
+    #st.write("More attributes?")
+    new_field = st.selectbox(
+        "Choose additional attributes to display:",
+        optional_col
+    )
+    st.metric(label=new_field.replace("_", " ").title(), value=pokemon_row[new_field].values[0])
+  
+    
 with col2:
     st.markdown('<BR>', unsafe_allow_html=True)
     # call display picture function
@@ -57,7 +71,7 @@ with col2:
 
 # df of the pokemon being compared against
 
-others_df = df[df["name"] != option].sample(10, random_state=None)
+others_df = df[df["name"] != option].sample(50, random_state=None)
 
 # display graph of weight vs height
 graph.show_graph(df, option, others_df)
