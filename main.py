@@ -1,7 +1,7 @@
 import streamlit as st 
 import pandas as pd
 import display_image as di
-from graph import show_graph
+import graph
 
 #Set title of app
 st.title("Pick-Your-Pokemon")
@@ -31,4 +31,4 @@ st.metric(label="Main Ability", value=pokemon_row["ability_1"].values[0])
 di.view_image(df, option, pokemon)
 
 # display graph of weight vs height
-show_graph(df, option)
+graph.show_graph(df, option)
