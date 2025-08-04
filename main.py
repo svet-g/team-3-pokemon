@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import display_image as di
 import graph
+import more_graphs
 
 st.markdown("""<HR>""", unsafe_allow_html=True,)
 
@@ -45,24 +46,21 @@ with col1:
     pokemon_row = df.loc[df["name"] == option] 
       
     st.markdown('<BR>', unsafe_allow_html=True)
-    # st.markdown("""<HR>""", unsafe_allow_html=True,)
     st.metric(label="Weight (kg)", value=pokemon_row["weight_kg"].values[0])
     st.metric(label="Height (m)", value=pokemon_row["height_m"].values[0])
     st.metric(label="Main Ability", value=pokemon_row["ability_1"].values[0])
     
 with col2:
-    # st.markdown('''<h3 style="color: darkslategray;">You selected:</h3>''',
-    #             unsafe_allow_html=True
-    #             )
-    # st.markdown(f'''<h4 style="color: darkslategray;">{option}</h4>''',
-    #             unsafe_allow_html=True
-    #             )
-    # st.markdown("""<HR>""", unsafe_allow_html=True,)
     st.markdown('<BR>', unsafe_allow_html=True)
     # call display picture function
     di.view_image(df, option, pokemon)
 
-# display graph of weight vs height
-graph.show_graph(df, option)
+# df of the pokemon being compared against
 
-st.markdown("""<HR>""", unsafe_allow_html=True,)
+others_df = df[df["name"] != option].sample(10, random_state=None)
+
+# display graph of weight vs height
+graph.show_graph(df, option, others_df)
+
+# display more graphs
+more_graphs.show_more_graphs(df, option, others_df)
