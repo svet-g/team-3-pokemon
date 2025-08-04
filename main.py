@@ -3,6 +3,9 @@ import pandas as pd
 import display_image as di
 import graph
 
+#Set screen with
+st.set_page_config(layout="wide", initial_sidebar_state="expanded")
+
 #Set title of app
 st.title("Pick-Your-Pokemon")
 
