@@ -10,7 +10,6 @@ def show_more_graphs(df, chosen_pokemon, other_pokemon):
     sns.set_theme(style="whitegrid")
     sns.set(font_scale=0.7)
     
-    st.set_page_config(page_title="Pokémon Attack and Defense Attributes by Status", layout="centered")
     st.subheader("Pokémon Attack and Defense Attributes by Status")
     
     chosen_pokemon_df = df[df["name"] == chosen_pokemon]

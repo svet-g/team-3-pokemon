@@ -4,6 +4,9 @@ import display_image as di
 import graph
 import more_graphs
 
+# streamlit page config
+st.set_page_config(page_title="Pick-Your-Pokémon App", layout="centered")
+
 st.markdown("""<HR>""", unsafe_allow_html=True,)
 
 # Set title of app
