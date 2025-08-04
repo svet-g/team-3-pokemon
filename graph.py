@@ -31,7 +31,7 @@ def show_graph(df, selected_name):
         ax.scatter(heights[-1], weights[-1], label=names[-1], color="red", s=100)
 
         for i, name in enumerate(names):
-            ax.annotate(name, (heights[i], weights[i]), fontsize=8, xytext=(5, 5), textcoords="offset points")
+            ax.annotate(name, (heights[i], weights[i]), fontsize=6, xytext=(5, 5), textcoords="offset points")
             
         
         ax.set_xlabel("Height (m)")
@@ -42,4 +42,5 @@ def show_graph(df, selected_name):
 
     if selected_name:
         fig = compare_with_random(main_height, main_weight, selected_name, df)
+
         st.pyplot(fig)
