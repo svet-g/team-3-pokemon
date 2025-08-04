@@ -50,19 +50,6 @@ with col1:
     st.metric(label="Height (m)", value=pokemon_row["height_m"].values[0])
     st.metric(label="Main Ability", value=pokemon_row["ability_1"].values[0])
     
-    optional_col = []
-
-    for col in df.columns:
-        if col not in ["name", "weight_kg", "height_m", "ability_1"]:
-            optional_col.append(col)        
-
-    st.write("More attributes?")
-    new_field = st.selectbox(
-        "Choose additional attributes to display:",
-        optional_col
-    )
-
-
 with col2:
     # st.markdown('''<h3 style="color: darkslategray;">You selected:</h3>''',
     #             unsafe_allow_html=True
