@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import display_image as di
 import graph
+import more_graphs
 
 #Set screen with
 st.set_page_config(layout="wide", initial_sidebar_state="expanded")
@@ -33,5 +34,12 @@ st.metric(label="Main Ability", value=pokemon_row["ability_1"].values[0])
 # call display picture function
 di.view_image(df, option, pokemon)
 
+# df of the pokemon being compared against
+
+others_df = df[df["name"] != option].sample(10, random_state=None)
+
 # display graph of weight vs height
-graph.show_graph(df, option)
+graph.show_graph(df, option, others_df)
+
+# display more graphs
+more_graphs.show_more_graphs(df, option, others_df)
