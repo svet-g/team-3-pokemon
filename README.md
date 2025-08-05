@@ -2,6 +2,8 @@
 
 # Pokémon Stats Explorer
 
+![Charmander Image](images/charmander.png)
+
 This is a Streamlit app that lets users explore Pokémon data interactively.
 
 ## Features
