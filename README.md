@@ -36,5 +36,6 @@ Also available on: https://team-3-pokemon.streamlit.app/
 ## Credits
 
 - Data Source: Pokémon CSV dataset
+-  PokéAPI is free and open to use. All images subject to fair use policy.
 
 
