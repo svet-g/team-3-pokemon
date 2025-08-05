@@ -29,6 +29,8 @@ Once a Pokémon is selected, the app generates a visual comparing its height and
 3. Install requirements: `pip install -r requirements.txt`
 4. Run the app with `streamlit run main.py`
 
+Also available on: https://team-3-pokemon.streamlit.app/
+
 ## Credits
 
 - Data Source: Pokémon CSV dataset
