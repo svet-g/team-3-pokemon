@@ -20,6 +20,7 @@ Once a Pokémon is selected, the app generates a visual comparing its height and
 - Streamlit
 - Pandas
 - Matplotlib
+- Seaborn
 
 ## Running the App
 
